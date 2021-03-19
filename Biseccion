@@ -14,13 +14,14 @@ Ru=float(input("Digite Rugosidad:  "))
 D=float(input("Digite Diametro:  "))
 I=float(input("Digite cantidad Iteraciones:  "))
 
- 
-def factorfcole(Re,eps,D):
+# la ecuación de colebrook.
+# funcion que recibe los datos de entrada como parámetros
+def factorfcole(Re,Ru,D):
 	 f = 64/Re;
-	 maxiter=I;
+	 iteraciones=I;
 	 i=1;
 	 error=1;
-	 while error>1e-6 and i <= maxiter:
+	 while error>1e-6 and i <= iteraciones:
 		 f1 = 1/(0.86*log(Ru/D/3.7+2.51/Re/sqrt(f)))**2;
 		 i = i+1;
 		 error=abs(f1-f)
