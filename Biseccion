@@ -9,18 +9,21 @@ from scipy import *
 from matplotlib import *
 from pylab import *
 
+# Datos de variables por pantalla
+
 Re=float(input("Digite Reynolds:  "))
 Ru=float(input("Digite Rugosidad:  "))
 D=float(input("Digite Diametro:  "))
 I=float(input("Digite cantidad Iteraciones:  "))
 
- 
-def factorfcole(Re,eps,D):
+# Calculo de la ecuación de colebrook.
+
+def factorfcole(Re,eps,D): # funcion que recibe los datos de entrada como parametros
 	 f = 64/Re;
-	 maxiter=I;
+	 iteraciones=I; 
 	 i=1;
 	 error=1;
-	 while error>1e-6 and i <= maxiter:
+	 while error>1e-6 and i <= iteraciones:
 		 f1 = 1/(0.86*log(eps/D/3.7+2.51/Re/sqrt(f)))**2;
 		 i = i+1;
 		 error=abs(f1-f)
