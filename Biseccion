@@ -1,0 +1,30 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Mar 19 18:12:00 2021
+
+@author: CESARAUGUSTOSALAZARV
+"""
+
+from scipy import *
+from matplotlib import *
+from pylab import *
+
+Re=float(input("Digite Reynolds:  "))
+Ru=float(input("Digite Rugosidad:  "))
+D=float(input("Digite Diametro:  "))
+I=float(input("Digite cantidad Iteraciones:  "))
+
+ 
+def factorfcole(Re,eps,D):
+	 f = 64/Re;
+	 maxiter=I;
+	 i=1;
+	 error=1;
+	 while error>1e-6 and i <= maxiter:
+		 f1 = 1/(0.86*log(eps/D/3.7+2.51/Re/sqrt(f)))**2;
+		 i = i+1;
+		 error=abs(f1-f)
+		 f=f1;	 
+	 return f
+
+print(factorfcole(Re,4.6e-5,D))
